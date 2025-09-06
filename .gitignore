@@ -1,0 +1,33 @@
+*.spec
+build
+dist
+.env
+__pycache__
+node_modules
+*.log
+test.py
+# Logs
+app/npm-debug.log*
+app/yarn-debug.log*
+app/yarn-error.log*
+app/pnpm-debug.log*
+app/lerna-debug.log*
+app/dist
+app/dist-ssr
+app/*.local
+binaries
+# Editor directories and files
+app/.vscode/*
+app/!.vscode/extensions.json
+app/.idea
+app/.DS_Store
+app/*.suo
+app/*.ntvs*
+app/*.njsproj
+app/*.sln
+app/*.sw?
+dist_obfuscated
+dist6
+.auth_cache
+scripts/settings.json
+scripts/temp_input_devices.csv
