@@ -108,7 +108,7 @@ python main.py
 ```
 
 ## 💾 Instalação 
-Acesse a aba de releases do repositório e baixe o executável mais atualizado.
+Acesse a aba de [releases](https://github.com/Verdant31/neuro-desk/releases) do repositório e baixe o executável mais atualizado.
 
 
 ## ⚙️ Configuração
