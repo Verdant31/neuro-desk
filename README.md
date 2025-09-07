@@ -57,15 +57,59 @@ O **Neuro Desk** é um assistente de automação inteligente para Windows que pe
 - **Processamento Contextual**: Entendimento de comandos complexos
 - **Validação Inteligente**: Verificação de ações antes da execução
 
-## 🚀 Instalação
-
-### Pré-requisitos
+## 🚀 Pré-requisitos
 
 - **Windows 10/11** (64-bit)
 - **Node.js** v18+ e npm
 - **Rust** (para compilação do Tauri)
 - **Python** 3.10+ (para scripts de automação)
 - **Microfone** funcional para comandos de voz
+
+### Configurando o Ambiente
+
+1. **Tauri**
+- Siga a própria documentação deles para poder rodar o app Tauri https://v2.tauri.app/start/prerequisites/
+- Com as ferramentas necessárias instaladas:
+```bash
+cd app
+npm install
+```
+2. **Back (python)**
+```bash
+cd scripts
+python -m venv venv
+python install -r requirements.txt
+```
+
+## 💻 Executando em Desenvolvimento
+
+### Build do código python 
+```bash
+cd scripts
+python build.py
+```
+
+### Frontend (Tauri + React)
+```bash
+cd app
+npm run tauri dev  
+```
+
+### ‼️ Caso faça alterações de algo no back, execute o build para que o Front tenha acesso ao .exe atualizado
+```bash
+cd scripts
+python build.py
+```
+
+### Caso queira testar a execução do script sem o Front
+```bash
+cd scripts
+python main.py
+```
+
+## 💾 Instalação 
+Acesse a aba de releases do repositório e baixe o executável mais atualizado.
+
 
 ## ⚙️ Configuração
 
@@ -227,52 +271,6 @@ graph LR
     I --> K[Monitoramento]
     K --> L[Health Check Server]
 ```
-
-### Configurando o Ambiente
-
-1. **Tauri**
-- Siga a própria documentação deles para poder rodar o app Tauri https://v2.tauri.app/start/prerequisites/
-- Com as ferramentas necessárias instaladas:
-```bash
-cd app
-npm install
-```
-2. **Back (python)**
-```bash
-cd scripts
-python -m venv venv
-python install -r requirements.txt
-```
-
-## 💻 Executando em Desenvolvimento
-
-### Build do código python 
-```bash
-cd scripts
-python build.py
-```
-
-### Frontend (Tauri + React)
-```bash
-cd app
-npm run tauri dev  
-```
-
-### ‼️ Caso faça alterações de algo no back, execute o build para que o Front tenha acesso ao .exe atualizado
-```bash
-cd scripts
-python build.py
-```
-
-### Caso queira testar a execução do script sem o Front
-```bash
-cd scripts
-python main.py
-```
-
-## 💾 Instalação 
-Acesse a aba de releases do repositório e baixe o executável mais atualizado.
-
 
 ## 🤝 Contribuindo
 
