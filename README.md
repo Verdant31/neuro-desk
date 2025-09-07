@@ -65,20 +65,7 @@ O **Neuro Desk** é um assistente de automação inteligente para Windows que pe
 - **Node.js** v18+ e npm
 - **Rust** (para compilação do Tauri)
 - **Python** 3.10+ (para scripts de automação)
-- **AutoHotkey v2** (para módulos de automação)
 - **Microfone** funcional para comandos de voz
-
-### Instalação Rápida (Para uso pessoal e não desenvolvimento)
-
-1. **Clone o repositório**
-```bash
-git clone https://github.com/seu-usuario/neuro-desk.git
-cd neuro-desk
-```
-
-2. **Executar o instalador:**
-Acesse app\src-tauri\target\release\bundle\msi e instale através do executavel na pasta
-
 
 ## ⚙️ Configuração
 
