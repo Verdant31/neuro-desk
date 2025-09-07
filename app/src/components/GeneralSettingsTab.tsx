@@ -29,6 +29,7 @@ export const GeneralSettingsTab: React.FC<GeneralSettingsTabProps> = ({
   updateSettings,
 }) => {
   const { isStartupEnabled, loading, setStartupEnabled } = useStartup()
+  const [showOllamaInfo, setShowOllamaInfo] = React.useState(false)
 
   const handleStartupToggle = async (enabled: boolean) => {
     await setStartupEnabled(enabled)
@@ -56,12 +57,15 @@ export const GeneralSettingsTab: React.FC<GeneralSettingsTabProps> = ({
           <div className="space-y-2">
             <Label htmlFor="llm-provider">LLM Provider</Label>
             <Select
-              value={settings.llm_provider || 'ollama'}
-              onValueChange={(value) =>
+              value={settings.llm_provider || 'openai'}
+              onValueChange={(value) => {
+                if (value === 'ollama') {
+                  setShowOllamaInfo(true)
+                }
                 updateSettings({
                   llm_provider: value as Settings['llm_provider'],
                 })
-              }
+              }}
             >
               <SelectTrigger id="llm-provider">
                 <SelectValue placeholder="Select provider" />
@@ -130,6 +134,29 @@ export const GeneralSettingsTab: React.FC<GeneralSettingsTabProps> = ({
           />
         </div>
       </CardContent>
+      {showOllamaInfo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-background w-[90%] max-w-lg rounded-lg border p-6 shadow-lg">
+            <h3 className="text-lg font-semibold mb-2">
+              Primeira inicialização com Ollama
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Ao iniciar com o provedor <b>Ollama</b> sem configuração prévia, o
+              programa fará automaticamente a instalação do Ollama e do modelo
+              selecionado. Esse processo pode demorar mais na primeira vez. Você
+              pode acompanhar o andamento na aba <b>Logs</b>.
+            </p>
+            <div className="flex justify-end gap-2">
+              <button
+                className="px-4 py-2 text-sm rounded-md border"
+                onClick={() => setShowOllamaInfo(false)}
+              >
+                Entendi
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Card>
   )
 }

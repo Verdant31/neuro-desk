@@ -241,12 +241,16 @@ graph LR
     K --> L[Health Check Server]
 ```
 
-## 🔧 Desenvolvimento
-
 ### Configurando o Ambiente
 
-1. **Tauri**: Siga a própria documentação deles https://v2.tauri.app/start/prerequisites/
-2. Back (python)
+1. **Tauri**
+- Siga a própria documentação deles para poder rodar o app Tauri https://v2.tauri.app/start/prerequisites/
+- Com as ferramentas necessárias instaladas:
+```bash
+cd app
+npm install
+```
+2. **Back (python)**
 ```bash
 cd scripts
 python -m venv venv
@@ -278,6 +282,9 @@ python build.py
 cd scripts
 python main.py
 ```
+
+## 💾 Instalação 
+Acesse a aba de releases do repositório e baixe o executável mais atualizado.
 
 
 ## 🤝 Contribuindo

@@ -67,7 +67,7 @@ function App() {
         />
 
         <div className="mb-6">
-          <AssistantStatus />
+          <AssistantStatus settings={settings} />
         </div>
 
         <Tabs defaultValue="general" className="space-y-6">

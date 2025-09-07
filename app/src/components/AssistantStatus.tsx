@@ -4,7 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Play, RefreshCw, Square } from 'lucide-react'
 import { ClipLoader } from 'react-spinners'
-export function AssistantStatus() {
+import { Settings } from '@/types'
+import { toast } from 'sonner'
+
+export function AssistantStatus({ settings }: { settings: Settings }) {
   const {
     healthStatus,
     loading,
@@ -35,6 +38,20 @@ export function AssistantStatus() {
     }
   }
 
+  const isStartBlockedByOpenAI =
+    (settings.llm_provider || 'openai') === 'openai' &&
+    (!settings.openai_api_key || settings.openai_api_key.trim() === '')
+
+  const handleStartClick = async () => {
+    if (isStartBlockedByOpenAI) {
+      toast.error(
+        'Forneça uma OpenAI API Key em General > LLM Provider para iniciar com OpenAI.',
+      )
+      return
+    }
+    await startAssistant()
+  }
+
   const getStatusText = (status: string) => {
     switch (status) {
       case 'running':
@@ -63,12 +80,13 @@ export function AssistantStatus() {
           Assistant Status
           <div className="flex gap-2">
             <Button
-              onClick={startAssistant}
+              onClick={handleStartClick}
               className="w-24 cursor-pointer"
               disabled={
                 loading ||
                 healthStatus?.status === 'running' ||
-                healthStatus?.status === 'starting'
+                healthStatus?.status === 'starting' ||
+                isStartBlockedByOpenAI
               }
             >
               {!loading ? (

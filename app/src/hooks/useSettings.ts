@@ -10,8 +10,8 @@ export function useSettings() {
     execution_plans: [],
     chrome_profiles: [],
     custom_apps: [],
-    llm_provider: 'ollama',
-    llm_model: null,
+    llm_provider: 'openai',
+    llm_model: 'gpt-4o-mini',
     openai_api_key: null,
     openai_base_url: null,
   })
